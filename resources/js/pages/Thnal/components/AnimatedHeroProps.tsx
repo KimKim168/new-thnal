@@ -116,8 +116,8 @@ export const AnimatedHero = ({
                         WebkitTextStroke: '1.5px #FDE68A', // fallback
                     }}
                     className={cn(
-                        'text-stroke max-w-[790px] stroke-amber-300 md:py-2 text-2xl font-semibold tracking-normal md:text-5xl',
-                        currentLocale === 'kh' ? 'font-sans leading-tight text-xl md:text-5xl' : 'font-serif',
+                        'text-stroke max-w-[790px] stroke-amber-300 md:py-2 text-2xl leading-tight font-semibold tracking-normal md:text-5xl',
+                        currentLocale === 'kh' ? 'font-sans text-xl leading-tight' : 'font-serif',
                     )}
                 >
                     {description}
@@ -127,7 +127,7 @@ export const AnimatedHero = ({
                     style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
                     variants={itemVariants}
                     // Updated text color to white and adjusted the shadow from 30px (too far) to 4px
-                    className="mt-2 md:line-clamp-3 max-w-[790px] text-[12px]  md:text-[17px] leading-relaxed font-medium text-[#F5F5F5]"
+                    className="mt-2  max-w-[790px] text-[10px]  md:text-[16px] leading-relaxed font-medium text-[#F5F5F5]"
                 >
                     {longDescription}
                 </motion.p>
