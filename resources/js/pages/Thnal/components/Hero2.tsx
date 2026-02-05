@@ -33,7 +33,7 @@ export default function Hero2() {
             logo={
                 <a 
                 href='/' className='flex items-center'>
-                    <img src={`/assets/images/website_infos/${website_info?.logo}`} className="h-20 w-20" />
+                    <img src={`/assets/images/website_infos/${website_info?.logo}`} className="h-full w-20 object-contain" />
                     <span className="text-2xl font-semibold text-primary-foreground">{currentLocale === 'kh' ? website_info?.name_kh || website_info?.name : website_info?.name}</span>
                 </a>
             }
