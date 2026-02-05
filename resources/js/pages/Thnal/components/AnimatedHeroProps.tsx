@@ -70,7 +70,7 @@ export const AnimatedHero = ({
     const { t, currentLocale } = useTranslation();
 
     return (
-        <div className={cn('relative flex min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
+        <div className={cn('relative flex min-h-[600px] md:min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
@@ -85,17 +85,7 @@ export const AnimatedHero = ({
                 className="section-container absolute top-0 z-20 flex h-28 w-full items-center justify-between px-6 text-white md:px-12"
             >
                 <div className="flex items-center gap-2">{logo}</div>
-                {/* <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav> */}
+
                 <div className="hidden md:block">{topRightAction}</div>
             </motion.header>
 
@@ -109,7 +99,7 @@ export const AnimatedHero = ({
                     style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
                     variants={itemVariants}
                     // Updated text color to white and adjusted the shadow from 30px (too far) to 4px
-                    className="mb-2 line-clamp-3 max-w-[600px] text-[17px] leading-relaxed font-medium text-[#E5E7EB]"
+                    className="mb-2 line-clamp-3 max-w-[600px] text-[12px]  md:text-[17px] leading-relaxed font-medium text-[#E5E7EB]"
                 >
                     {title}
                 </motion.p>
@@ -126,8 +116,8 @@ export const AnimatedHero = ({
                         WebkitTextStroke: '1.5px #FDE68A', // fallback
                     }}
                     className={cn(
-                        'text-stroke max-w-[790px] stroke-amber-300 py-2 text-3xl font-semibold tracking-normal md:text-5xl',
-                        currentLocale === 'kh' ? 'font-sans leading-tight' : 'font-serif',
+                        'text-stroke max-w-[790px] stroke-amber-300 md:py-2 text-2xl font-semibold tracking-normal md:text-5xl',
+                        currentLocale === 'kh' ? 'font-sans leading-tight text-xl md:text-5xl' : 'font-serif',
                     )}
                 >
                     {description}
@@ -137,7 +127,7 @@ export const AnimatedHero = ({
                     style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
                     variants={itemVariants}
                     // Updated text color to white and adjusted the shadow from 30px (too far) to 4px
-                    className="mt-2 line-clamp-3 max-w-[790px] text-[17px] leading-relaxed font-medium text-[#F5F5F5]"
+                    className="mt-2 md:line-clamp-3 max-w-[790px] text-[12px]  md:text-[17px] leading-relaxed font-medium text-[#F5F5F5]"
                 >
                     {longDescription}
                 </motion.p>

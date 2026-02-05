@@ -16,7 +16,7 @@ interface LibraryResultItemProps {
 
 export default function LibraryResultItem({ item }: LibraryResultItemProps) {
     return (
-        <div className="hover:shadow-gray flex gap-6 border-b p-6 transition-all duration-500 hover:scale-105 hover:shadow-lg">
+        <div className="group flex flex-col gap-4 border-b p-4 transition-all duration-300 hover:bg-slate-50/50 hover:shadow-md sm:flex-row sm:gap-6 sm:p-6 md:hover:-translate-y-1">
             {/* Left: Book Cover */}
             <div className="w-32 shrink-0">
                 <img src={item.thumbnail} alt={item.title} className="w-full" />
