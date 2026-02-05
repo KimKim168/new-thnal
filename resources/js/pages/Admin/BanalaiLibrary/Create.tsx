@@ -5,11 +5,13 @@ import FormFileUpload from '@/components/Form/FormFileUpload';
 import UploadedFile from '@/components/Form/UploadedFileDisplay';
 import UploadedImage from '@/components/Form/UploadedImageDisplay';
 import { FormField } from '@/components/Input/FormField';
+import { FormLabel } from '@/components/Input/FormLabel';
 import { ProgressWithValue } from '@/components/ProgressBar/progress-with-value';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
 import useTranslation from '@/hooks/use-translation';
 import AppLayout from '@/layouts/app-layout';
 import { cn } from '@/lib/utils';
+import MyCkeditor5 from '@/pages/plugins/ckeditor5/my-ckeditor5';
 import { BreadcrumbItem } from '@/types';
 import { useForm, usePage } from '@inertiajs/react';
 import { useState } from 'react';
@@ -166,10 +168,10 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         onChange={(val) => setData('link', val)}
                         error={errors.link}
                     />
-                    {/* <div className="col-span-2 grid content-start gap-2">
+                    <div className="col-span-2 grid content-start gap-2">
                         <FormLabel label="Long Description" />
                         <MyCkeditor5 data={data.long_description || ''} setData={(val: any) => setData('long_description', val)} />
-                    </div> */}
+                    </div>
 
                     <div className="col-span-2">
                         <Tabs defaultValue="icon" className="w-full rounded-lg bg-muted/80 p-4">

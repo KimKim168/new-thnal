@@ -77,7 +77,7 @@ const ThnalSearch = ({ debounceSearch = true }: LibrarySearchProps) => {
         <div className="relative w-full max-w-4xl">
             <div
                 className={cn(
-                    'flex items-center rounded-full border border-white/20 bg-white/10 p-2 text-primary-foreground ring-primary/20 backdrop-blur-sm focus-within:ring-4 dark:ring-primary/50',
+                    'flex items-center rounded-full border border-white bg-white/10 p-2 text-primary-foreground ring-primary/20 backdrop-blur-sm focus-within:ring-4 dark:ring-primary/50',
                 )}
             >
                 <Button variant="ghost" size="icon" className="hidden rounded-full pl-2 sm:inline-flex">
@@ -113,11 +113,11 @@ const ThnalSearch = ({ debounceSearch = true }: LibrarySearchProps) => {
                     }}
                     onKeyDown={handleKeyDown}
                     placeholder={placeholderMap[searchType]}
-                    className="flex-1 border-0 bg-transparent pl-2 text-base shadow-none focus-visible:ring-0 sm:pl-3 sm:text-lg"
+                    className="flex-1 border-0 bg-transparent pl-2 placeholder:text-white/80 text-base shadow-none focus-visible:ring-0 sm:pl-3 sm:text-lg"
                 />
 
-                <Button variant="ghost" size="icon" className="rounded-full bg-primary/10 hover:bg-primary/20" onClick={handleSearch}>
-                    <SearchIcon className="h-5 w-5 text-white" />
+                <Button variant="ghost" size="icon" className="rounded-full bg-primary hover:bg-primary/50" onClick={handleSearch}>
+                    <SearchIcon className="h-5 w-5 text-white dark:text-[#1f79ee]" />
                 </Button>
             </div>
         </div>

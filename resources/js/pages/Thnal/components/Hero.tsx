@@ -38,8 +38,8 @@ export default function Hero() {
             backgroundImageUrl={banner?.image}
             logo={
                 <a 
-                href='/' className='flex items-center'>
-                    <img src={`/assets/images/website_infos/${website_info?.logo}`} className="h-20 w-20" />
+                href='/' className='flex items-center gap-2'>
+                    <img src={`/assets/images/website_infos/${website_info?.logo}`} className="h-full w-20 object-contain" />
                     <span className="text-2xl font-semibold text-primary-foreground">{currentLocale === 'kh' ? website_info?.name_kh || website_info?.name : website_info?.name}</span>
                 </a>
             }
@@ -85,6 +85,7 @@ export default function Hero() {
             }
             title={currentLocale === 'kh' ? banner?.name_kh || banner?.name : banner?.name}
             description={currentLocale === 'kh' ? banner?.short_description_kh || banner?.short_description : banner?.short_description}
+            longDescription={currentLocale === 'kh' ? banner?.long_description_kh || banner?.long_description : banner?.long_description}
         />
     );
 }

@@ -1,3 +1,4 @@
+import useTranslation from '@/hooks/use-translation';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import * as React from 'react';
@@ -17,6 +18,7 @@ interface AnimatedHeroProps {
     topRightAction?: React.ReactNode;
     title: string;
     description: string;
+    longDescription: string;
     ctaButton: {
         text: string;
         onClick: () => void;
@@ -59,19 +61,21 @@ export const AnimatedHero = ({
     topRightAction,
     title,
     description,
+    longDescription,
     ctaButton,
     secondaryCta,
     className,
 }: AnimatedHeroProps) => {
     // Define the new reusable glass button style
+    const { t, currentLocale } = useTranslation();
 
     return (
-        <div className={cn('relative flex min-h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
+        <div className={cn('relative flex min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
             >
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0" />
             </div>
 
             <motion.header
@@ -101,13 +105,43 @@ export const AnimatedHero = ({
                 animate="visible"
                 className="section-container relative z-10 flex w-full flex-col justify-center px-6 text-left text-white md:px-12"
             >
-                <motion.h1 variants={itemVariants} className="text-xl font-bold tracking-tight text-primary-foreground sm:text-2xl">
+                <motion.p
+                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
+                    variants={itemVariants}
+                    // Updated text color to white and adjusted the shadow from 30px (too far) to 4px
+                    className="mb-2 line-clamp-3 max-w-[600px] text-[17px] leading-relaxed font-medium text-[#E5E7EB]"
+                >
                     {title}
-                </motion.h1>
-                <motion.p variants={itemVariants} className="mt-2 max-w-2xl text-base leading-8 text-primary-foreground/80">
-                    {description}
                 </motion.p>
-                <motion.div variants={itemVariants} className="mt-10 flex items-center gap-x-4">
+
+                <motion.h1
+                    variants={itemVariants}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                    style={{
+                        background: 'linear-gradient(182deg, #FFD885, #F8C25B, #EEA423, #E99913, #D9770B)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        WebkitTextStroke: '1.5px #FDE68A', // fallback
+                    }}
+                    className={cn(
+                        'text-stroke max-w-[790px] stroke-amber-300 py-2 text-3xl font-semibold tracking-normal md:text-5xl',
+                        currentLocale === 'kh' ? 'font-sans leading-tight' : 'font-serif',
+                    )}
+                >
+                    {description}
+                </motion.h1>
+
+                <motion.p
+                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
+                    variants={itemVariants}
+                    // Updated text color to white and adjusted the shadow from 30px (too far) to 4px
+                    className="mt-2 line-clamp-3 max-w-[790px] text-[17px] leading-relaxed font-medium text-[#F5F5F5]"
+                >
+                    {longDescription}
+                </motion.p>
+                <motion.div variants={itemVariants} className="mt-10 flex max-w-[790px] items-center gap-x-4">
                     {/* UPDATED: Applied the new glass button style */}
                     <ThnalSearch />
                     <AlertDialogSearch />
