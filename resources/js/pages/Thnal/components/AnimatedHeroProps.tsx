@@ -70,7 +70,7 @@ export const AnimatedHero = ({
     const { t, currentLocale } = useTranslation();
 
     return (
-        <div className={cn('relative flex min-h-[600px] md:min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
+        <div className={cn('relative flex min-h-[400px] md:min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
@@ -127,7 +127,7 @@ export const AnimatedHero = ({
                     style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}
                     variants={itemVariants}
                     // Updated text color to white and adjusted the shadow from 30px (too far) to 4px
-                    className="mt-2  max-w-[790px] text-[10px]  md:text-[16px] leading-relaxed font-medium text-[#F5F5F5]"
+                    className="mt-2 hidden md:flex max-w-[790px] text-[10px]  md:text-[16px] leading-relaxed font-medium text-[#F5F5F5]"
                 >
                     {longDescription}
                 </motion.p>

@@ -77,11 +77,11 @@ const ThnalSearch = ({ debounceSearch = true }: LibrarySearchProps) => {
         <div className="relative w-full max-w-4xl">
             <div
                 className={cn(
-                    'flex items-center rounded-full border border-white bg-white/10 p-2 text-primary-foreground ring-primary/20 backdrop-blur-sm focus-within:ring-4 dark:ring-primary/50',
+                    'flex items-center rounded-full border border-white bg-white/10 md:p-2 text-primary-foreground ring-primary/20 backdrop-blur-sm focus-within:ring-4 dark:ring-primary/50',
                 )}
             >
                 <Button variant="ghost" size="icon" className="hidden rounded-full pl-2 sm:inline-flex">
-                    <LibraryIcon className="h-5 w-5 text-white" />
+                    <LibraryIcon className="md:h-5 md:w-5 text-white" />
                 </Button>
 
                 {/* Search Type */}
@@ -95,7 +95,7 @@ const ThnalSearch = ({ debounceSearch = true }: LibrarySearchProps) => {
                             debouncedSearch(search, value);
                         }
                     }}
-                    className="bg-transparent px-2 text-sm text-white outline-none sm:text-base"
+                    className="bg-transparent text-[12px] px-2 md:text-sm text-white outline-none sm:text-base"
                 >
                     <option value="library">Library</option>
                     <option value="item">Items</option>
@@ -113,7 +113,7 @@ const ThnalSearch = ({ debounceSearch = true }: LibrarySearchProps) => {
                     }}
                     onKeyDown={handleKeyDown}
                     placeholder={placeholderMap[searchType]}
-                    className="flex-1 border-0 bg-transparent pl-2 placeholder:text-white/80 text-base shadow-none focus-visible:ring-0 sm:pl-3 sm:text-lg"
+                    className="flex-1 border-0 bg-transparent pl-2 placeholder:text-white/80 text-base shadow-none focus-visible:ring-0 sm:pl-3 text-[12px] sm:text-lg"
                 />
 
                 <Button variant="ghost" size="icon" className="rounded-full bg-primary hover:bg-primary/50" onClick={handleSearch}>
