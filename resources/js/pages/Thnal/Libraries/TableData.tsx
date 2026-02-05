@@ -41,7 +41,7 @@ const TableData = () => {
         <>
             <div className="rounded-lg bg-white">
                 {tableData.data.map((item) => (
-                    <LibraryResultItem key={item.id} item={item} />
+                    <LibraryResultItem key={item.id} item={item}  />
                 ))}
             </div>
 

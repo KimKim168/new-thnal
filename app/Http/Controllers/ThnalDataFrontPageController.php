@@ -23,10 +23,17 @@ class ThnalDataFrontPageController extends Controller
         $resource = Resource::orderBy('order_index')->get();
         $bannalai = BanalaiLibrary::orderBy('order_index')->get();
         // return $bannalai;
-        return Inertia::render('Thnal/Index',[
+        return Inertia::render('Thnal/Index', [
             'banner' => $banner,
             'resource' => $resource,
             'bannalai' => $bannalai,
+        ]);
+    }
+    public function book_detail()
+    {
+        $banner = Banner::first();
+        return Inertia::render('Thnal/Libraries/ShowBook', [
+            'banner' => $banner,
         ]);
     }
 

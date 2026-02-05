@@ -15,4 +15,5 @@ use Inertia\Inertia;
 
 Route::get('/', [ThnalDataFrontPageController::class, 'index']);
 Route::get('/libraries', [ThnalDataFrontPageController::class, 'libraries']);
+Route::get('/book-detail/{id}', [ThnalDataFrontPageController::class, 'book_detail']);
 // Route::get('/libraries/{id}', [LibraryDataFrontPageController::class, 'library_show']);

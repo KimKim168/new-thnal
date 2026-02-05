@@ -20,6 +20,9 @@ interface PageForm {
     name: string;
     name_kh?: string;
 
+    phone?: string;
+    telegram?: string;
+    email?: string;
     short_description?: string;
     short_description_kh?: string;
 
@@ -51,6 +54,9 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
     const { data, setData, post, processing, transform, progress, errors, reset } = useForm<PageForm>({
         name: editData?.name || '',
         name_kh: editData?.name_kh || '',
+        phone: editData?.phone || '',
+        telegram: editData?.telegram || '',
+        email: editData?.email || '',
         order_index: editData?.order_index || 10000,
         short_description: editData?.short_description || '',
         short_description_kh: editData?.short_description_kh || '',
@@ -148,6 +154,34 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         error={errors.short_description}
                         containerClassName="col-span-2"
                     /> */}
+                    <FormField
+                        id="phone"
+                        name="phone"
+                        label="Phone"
+                        value={data.phone}
+                        onChange={(val) => setData('phone', val)}
+                        error={errors.phone}
+                        containerClassName="col-span-2"
+                    />
+                    <FormField
+                        id="telegram"
+                        name="telegram"
+                        label="Telegram"
+                        value={data.telegram}
+                        onChange={(val) => setData('telegram', val)}
+                        error={errors.telegram}
+                        containerClassName="col-span-2"
+                        description="Example: https://t.me/username"
+                    />
+                    <FormField
+                        id="email"
+                        name="email"
+                        label="Email"
+                        value={data.email}
+                        onChange={(val) => setData('email', val)}
+                        error={errors.email}
+                        containerClassName="col-span-2"
+                    />
                     <FormField
                         required
                         type="number"

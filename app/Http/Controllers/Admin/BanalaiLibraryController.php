@@ -102,6 +102,9 @@ class BanalaiLibraryController extends Controller implements HasMiddleware
             'link' => 'nullable|string',
             'icon' => 'nullable|mimes:jpeg,png,jpg,gif,webp,svg|max:4096',
             'order_index' => 'required|numeric',
+            'phone' => 'nullable|string|max:30',
+            'telegram' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
         ]);
 
         if (trim($validated['long_description']) === '<p>&nbsp;</p>') {
@@ -215,6 +218,9 @@ class BanalaiLibraryController extends Controller implements HasMiddleware
             'icon' => 'nullable|mimes:jpeg,png,jpg,gif,webp,svg|max:4096',
             'images.*' => 'nullable|mimes:jpeg,png,jpg,gif,webp,svg|max:4096',
             'order_index' => 'required|numeric',
+            'phone' => 'nullable|string|max:30',
+            'telegram' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
         ]);
 
         if (trim($validated['long_description']) === '<p>&nbsp;</p>') {
