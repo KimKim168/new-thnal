@@ -70,7 +70,7 @@ export const AnimatedHero = ({
     const { t, currentLocale } = useTranslation();
 
     return (
-        <div className={cn('relative flex min-h-[500px] md:min-h-[700px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
+        <div className={cn('relative flex min-h-[400px] md:min-h-[700px] w-full flex-col items-center justify-end pb-4 md:pb-0 md:justify-center overflow-hidden bg-background', className)}>
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
@@ -131,7 +131,7 @@ export const AnimatedHero = ({
                 >
                     {longDescription}
                 </motion.p>
-                <motion.div variants={itemVariants} className="mt-10 flex max-w-[790px] items-center gap-x-4">
+                <motion.div variants={itemVariants} className="mt-5 md:mt-10 flex max-w-[790px] items-center gap-x-4">
                     {/* UPDATED: Applied the new glass button style */}
                     <ThnalSearch />
                     <AlertDialogSearch />
