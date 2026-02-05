@@ -113,7 +113,7 @@ export const AnimatedHero = ({
                         background: 'linear-gradient(182deg, #FFD885, #F8C25B, #EEA423, #E99913, #D9770B)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
-                        WebkitTextStroke: '1.5px #FDE68A', // fallback
+                       WebkitTextStroke: 'var(--text-stroke-width) #FDE68A', // fallback
                     }}
                     className={cn(
                         'text-stroke max-w-[790px] stroke-amber-300 md:py-2 text-2xl leading-tight font-semibold tracking-normal md:text-5xl',
