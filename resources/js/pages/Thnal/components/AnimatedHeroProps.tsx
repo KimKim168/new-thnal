@@ -72,10 +72,10 @@ export const AnimatedHero = ({
     return (
         <div className={cn('relative flex min-h-[400px] md:min-h-[700px] w-full flex-col items-center justify-end pb-4 md:pb-0 md:justify-center overflow-hidden bg-background', className)}>
             <div
-                className="absolute inset-0 z-0 bg-cover bg-center"
+                className="absolute inset-0 z-0 bg-cover bg-center "
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
             >
-                <div className="absolute inset-0" />
+                <div className="absolute inset-0 bg-black/20" />
             </div>
 
             <motion.header

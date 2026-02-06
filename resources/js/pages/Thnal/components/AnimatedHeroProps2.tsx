@@ -67,7 +67,7 @@ export const AnimatedHero2 = ({ backgroundImageUrl, logo, topRightAction, classN
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
             >
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/20" />
             </div>
 
             <motion.header

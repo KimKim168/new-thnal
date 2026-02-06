@@ -41,7 +41,7 @@ export default function Hero() {
                 href='/' className='flex items-center'>
                     <img src={`/assets/images/website_infos/${website_info?.logo}`} className="h-full w-20 object-contain" />
                    <span
-                        className="bg-gradient-to-r from-[#ffe4b2] via-[#ffd471] to-[#ffc400] bg-clip-text stroke-amber-100 text-xl stroke-2 md:text-2xl font-semibold text-transparent"
+                        className="bg-gradient-to-r from-[#ffd484] via-[#ffcf60] to-[#D4AF37] bg-clip-text stroke-amber-100 text-xl stroke-2 md:text-2xl font-semibold text-transparent"
                         style={{
                             WebkitTextStroke: '0.5px #FEF3C7', // amber-100
                         }}
