@@ -1,4 +1,5 @@
-import { Facebook, Mail, MessageCircle, Phone } from "lucide-react";
+import { Facebook, Globe, Mail, MessageCircle, Phone } from 'lucide-react';
+import { FaTelegramPlane } from 'react-icons/fa';
 
 const BookDetail = ({
     title = 'The treatise on laws : (Decretum DD. 1-20)',
@@ -13,9 +14,9 @@ const BookDetail = ({
     fileId = 'gratian-001',
     category = 'Law',
     categoryCode = 'law',
-    profileName = "Ouen Uy",
-    profileRole = "Librarian Specialist",
-    profileAvatar = "https://api.dicebear.com/7.x/avataaars/svg?seed=Ouen"
+    profileName = 'Ouen Uy',
+    profileRole = 'Librarian Specialist',
+    profileAvatar = 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ouen',
 }) => {
     const fileName = `Treatise_on_Laws.pdf`;
     // Note: Use viewUrl and downloadUrl in your buttons/links
@@ -51,19 +52,19 @@ const BookDetail = ({
                     {/* Authors Row */}
                     <div className="flex items-start justify-start gap-4 pb-1">
                         <span className="w-[120px] shrink-0 border-r border-gray-200">Authors</span>
-                        <span className="font-medium text-gray-800">{authors}</span>
+                        <span className="font-medium">{authors}</span>
                     </div>
 
                     {/* Publisher Row */}
                     <div className="flex items-start justify-start gap-4 pb-1">
                         <span className="w-[120px] shrink-0 border-r border-gray-200">Publisher</span>
-                        <span className="text-gray-700">{publisher}</span>
+                        <span className="">{publisher}</span>
                     </div>
 
                     {/* Language/Format Row */}
                     <div className="flex items-center justify-start gap-4 pb-1">
                         <span className="w-[120px] shrink-0 border-r border-gray-200">Language</span>
-                        <div className="flex gap-2 text-gray-700">
+                        <div className="flex gap-2">
                             <span>{language}</span>
                             <span className="text-gray-300">|</span>
                             <span>{format}</span>
@@ -76,60 +77,89 @@ const BookDetail = ({
                         <span className="text-primary underline-offset-4 hover:underline">{year}</span>
                     </div>
 
-                    {/* Description Section */}
-                    <div className="mt-4 border-t border-gray-100 pt-3">
-                        <div className="text-sm leading-relaxed text-gray-600">
-                            <span className="font-bold text-gray-800">Description: </span>
-                            {description}
+                    <div className="space-y-6">
+                        {/* Description Card */}
+                        <div className="rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:bg-gray-800">
+                            <h3 className="mb-2 text-sm font-bold text-gray-700 dark:text-gray-200">Description</h3>
+                            <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-100">{description}</p>
                         </div>
-                    </div>
 
-                     <div className="mt-4 border-t border-gray-100 pt-3">
-                        <div className="text-sm leading-relaxed text-gray-600">
-                            <p className="font-bold text-gray-800">This resource can be found at your library or contact us via:</p>
-                            
-                            <div className="mt-3 flex flex-wrap gap-4">
-                                {/* Facebook */}
-                                <a href="https://facebook.com" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-600 transition-colors hover:text-[#1877F2]">
-                                    <Facebook size={18} />
-                                    <span className="text-xs">Facebook</span>
+                        {/* Contact Card */}
+                        <div className="rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:bg-gray-800">
+                            <h3 className="mb-3 text-sm font-bold text-gray-700 dark:text-gray-200">
+                                This resource can be found at your library or contact us via:
+                            </h3>
+                            <div className="flex flex-wrap gap-4">
+                                {/* Website */}
+                                <a
+                                    href="https://librarywebsite.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex items-center gap-2 text-xs font-medium text-gray-600 transition-colors hover:text-primary dark:text-gray-300"
+                                >
+                                    <Globe size={18} />
+                                    Website
                                 </a>
 
-                                {/* Phone/Telegram */}
-                                <a href="tel:+85512345678" className="flex items-center gap-2 text-gray-600 transition-colors hover:text-primary">
+                                {/* Phone */}
+                                <a
+                                    href="tel:+85512345678"
+                                    className="flex items-center gap-2 text-xs font-medium text-gray-600 transition-colors hover:text-primary dark:text-gray-300"
+                                >
                                     <Phone size={18} />
-                                    <span className="text-xs">+855 12 345 678</span>
+                                    +855 12 345 678
                                 </a>
+
+                                {/* Facebook */}
+                                <a
+                                    href="https://facebook.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex items-center gap-2 text-xs font-medium text-gray-600 transition-colors hover:text-[#1877F2] dark:text-gray-300"
+                                >
+                                    <Facebook size={18} />
+                                    Facebook
+                                </a>
+
+                                {/* Telegram */}
+                                <a
+                                    href="https://t.me/username"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex items-center gap-2 text-xs font-medium text-gray-600 transition-colors hover:text-[#26A5E4] dark:text-gray-300"
+                                >
+                                    <FaTelegramPlane size={18}/>
+                                    Telegram
+                                </a>
+
                                 {/* Email */}
-                                <a href="mailto:info@library.com" className="flex items-center gap-2 text-gray-600 transition-colors hover:text-primary">
+                                <a
+                                    href="mailto:info@library.com"
+                                    className="flex items-center gap-2 text-xs font-medium text-gray-600 transition-colors hover:text-primary dark:text-gray-300"
+                                >
                                     <Mail size={18} />
-                                    <span className="text-xs">Email</span>
+                                    Email
                                 </a>
-                            </div>
                             </div>
                         </div>
 
-                        {/* Profile Card Section */}
-                    <div className="mt-6 rounded-lg border border-gray-100 bg-gray-50/50 p-4 transition-all hover:shadow-sm">
-                        <div className="flex items-center gap-4">
-                            {/* Avatar */}
-                            <div className="relative">
-                                <img 
-                                    src={profileAvatar} 
-                                    alt={profileName} 
-                                    className="h-14 w-14 rounded-full border-2 border-white bg-white shadow-sm object-cover"
-                                />
-                                <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-green-500"></div>
+                        {/* Profile Card */}
+                        <div className="flex items-center justify-between rounded-xl bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:bg-gray-800">
+                            <div className="flex items-center gap-4">
+                                <div className="relative">
+                                    <img
+                                        src={profileAvatar}
+                                        alt={profileName}
+                                        className="h-14 w-14 rounded-full border-2 border-white object-cover shadow-sm"
+                                    />
+                                    <span className="absolute right-0 bottom-0 h-3 w-3 rounded-full border-2 border-white bg-green-500"></span>
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-gray-900 dark:text-white">{profileName}</h4>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400">{profileRole}</p>
+                                </div>
                             </div>
-
-                            {/* Info */}
-                            <div className="flex-1">
-                                <h4 className="font-bold text-gray-900">{profileName}</h4>
-                                <p className="text-xs text-gray-500">{profileRole}</p>
-                            </div>
-
-                            {/* Action Button */}
-                            <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-bold text-white transition-all hover:bg-primary/90 active:scale-95">
+                            <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-bold text-white transition-all hover:bg-primary/90 active:scale-95 dark:text-black">
                                 <MessageCircle size={14} />
                                 Chat
                             </button>

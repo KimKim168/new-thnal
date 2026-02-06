@@ -1,9 +1,4 @@
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/animate-ui/radix/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/animate-ui/radix/accordion';
 import useTranslation from '@/hooks/use-translation';
 import { cn } from '@/lib/utils';
 import { router, usePage } from '@inertiajs/react';
@@ -16,6 +11,18 @@ import LibrarySidebarList from './LibrarySidebarList';
 ========================= */
 
 // Author / Creator
+// Libraries / Library Types
+const libraries = [
+    { value: 'national_library', label: 'National Library' },
+    { value: 'public_library', label: 'Public Library' },
+    { value: 'school_library', label: 'School Library' },
+    { value: 'university_library', label: 'University Library' },
+    { value: 'research_library', label: 'Research Library' },
+    { value: 'digital_library', label: 'Digital / E-Library' },
+    { value: 'community_library', label: 'Community Library' },
+    { value: 'private_library', label: 'Private Library' },
+];
+
 const authorCreators = [
     { value: 'unknown', label: 'Unknown Author' },
     { value: 'local', label: 'Local Author' },
@@ -55,13 +62,11 @@ export default function LibrarySidebar() {
     const { t, currentLocale } = useTranslation();
 
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
-    const initialQueryParams =
-        typeof window !== 'undefined'
-            ? new URLSearchParams(window.location.search)
-            : new URLSearchParams();
+    const initialQueryParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
 
     const [filters, setFilters] = useState({
         library_type_code: initialQueryParams.get('library_type_code') || '',
+        library_code: initialQueryParams.get('library_code') || '',
         source_of_funding_type_code: initialQueryParams.get('source_of_funding_type_code') || '',
         class_type_code: initialQueryParams.get('class_type_code') || '',
         province_code: initialQueryParams.get('province_code') || '',
@@ -91,10 +96,14 @@ export default function LibrarySidebar() {
 
         queryParams.set('page', '1');
 
-        router.get(`${currentPath}?${queryParams.toString()}`, {}, {
-            preserveState: true,
-            preserveScroll: true,
-        });
+        router.get(
+            `${currentPath}?${queryParams.toString()}`,
+            {},
+            {
+                preserveState: true,
+                preserveScroll: true,
+            },
+        );
     };
 
     const resetFilter = () =>
@@ -112,26 +121,25 @@ export default function LibrarySidebar() {
         <>
             <Accordion
                 type="multiple"
-                defaultValue={[
-                    'funding',
-                    'types',
-                    'classes',
-                    'provinces',
-                    'author',
-                    'year',
-                    'subject',
-                ]}
-                className={cn(
-                    'w-full rounded-lg border px-4',
-                    Object.values(filters).some(Boolean) &&
-                        'border-primary ring-4 ring-primary/20',
-                )}
+                defaultValue={['library','funding', 'types', 'classes', 'provinces', 'author', 'year', 'subject']}
+                className={cn('w-full rounded-lg border px-4', Object.values(filters).some(Boolean) && 'border-primary ring-4 ring-primary/20')}
             >
+                {/* Library */}
+                <AccordionItem value="library">
+                    <AccordionTrigger className="font-semibold">{t('Library')}</AccordionTrigger>
+                    <AccordionContent>
+                        <LibrarySidebarList
+                            heading={t('All Libraries')}
+                            value={filters.library_code}
+                            onChange={(val) => updateFilters({ library_code: val })}
+                            options={libraries}
+                        />
+                    </AccordionContent>
+                </AccordionItem>
+
                 {/* Author */}
                 <AccordionItem value="author">
-                    <AccordionTrigger className="font-semibold">
-                        {t('Author / Creator')}
-                    </AccordionTrigger>
+                    <AccordionTrigger className="font-semibold">{t('Author / Creator')}</AccordionTrigger>
                     <AccordionContent>
                         <LibrarySidebarList
                             heading={t('All Authors')}
@@ -144,16 +152,12 @@ export default function LibrarySidebar() {
 
                 {/* Publication Year */}
                 <AccordionItem value="year">
-                    <AccordionTrigger className="font-semibold">
-                        {t('Publication Year')}
-                    </AccordionTrigger>
+                    <AccordionTrigger className="font-semibold">{t('Publication Year')}</AccordionTrigger>
                     <AccordionContent>
                         <LibrarySidebarList
                             heading={t('All Years')}
                             value={filters.publication_year}
-                            onChange={(val) =>
-                                updateFilters({ publication_year: val })
-                            }
+                            onChange={(val) => updateFilters({ publication_year: val })}
                             options={publicationYears}
                         />
                     </AccordionContent>
@@ -161,9 +165,7 @@ export default function LibrarySidebar() {
 
                 {/* Subject */}
                 <AccordionItem value="subject" className="border-none">
-                    <AccordionTrigger className="font-semibold">
-                        {t('Subject')}
-                    </AccordionTrigger>
+                    <AccordionTrigger className="font-semibold">{t('Subject')}</AccordionTrigger>
                     <AccordionContent>
                         <LibrarySidebarList
                             heading={t('All Subjects')}
@@ -176,10 +178,7 @@ export default function LibrarySidebar() {
             </Accordion>
 
             <div className="flex justify-end">
-                <button
-                    onClick={resetFilter}
-                    className="mt-2 flex items-center gap-2 rounded-md p-2 hover:bg-muted hover:underline"
-                >
+                <button onClick={resetFilter} className="mt-2 flex items-center gap-2 rounded-md p-2 hover:bg-muted hover:underline">
                     <RotateCwIcon size={18} /> {t('Clear Filter')}
                 </button>
             </div>

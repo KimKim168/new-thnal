@@ -9,16 +9,16 @@ import { Button } from '@/components/ui/button';
 import useTranslation from '@/hooks/use-translation';
 import { SlidersHorizontalIcon } from 'lucide-react';
 import { useState } from 'react';
-import TableData from './TableData';
 import ThnalLayout from '../ThnalLayout';
 import Hero2 from '../components/Hero2';
+import TableData from './TableData';
 
 const Index = () => {
     const [isShowSidebar, setIsShowSidebar] = useState(true);
     const { t, currentLocale } = useTranslation();
     return (
         <ThnalLayout>
-            <Hero2/>
+            <Hero2 />
             <section className="section-container mb-40">
                 <div className="my-4">
                     <Breadcrumb>
@@ -28,7 +28,9 @@ const Index = () => {
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
-                                <BreadcrumbLink className='text-foreground font-medium' href="/libraries">{t('Libraries')}</BreadcrumbLink>
+                                <BreadcrumbLink className="font-medium text-foreground" href="/libraries">
+                                    {t('Libraries')}
+                                </BreadcrumbLink>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>

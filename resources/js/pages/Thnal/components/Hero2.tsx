@@ -29,12 +29,19 @@ export default function Hero2() {
 
     return (
         <AnimatedHero2
-           backgroundImageUrl={banner?.image}
+            className="sticky top-0 z-50"
+            backgroundImageUrl={banner?.image}
             logo={
-                <a 
-                href='/' className='flex items-center'>
+                <a href="/" className="flex items-center">
                     <img src={`/assets/images/website_infos/${website_info?.logo}`} className="h-full w-20 object-contain" />
-                    <span className="text-2xl font-semibold text-primary-foreground">{currentLocale === 'kh' ? website_info?.name_kh || website_info?.name : website_info?.name}</span>
+                    <span
+                        className="bg-gradient-to-r from-[#ffd484] via-[#ffcf60] to-[#D4AF37] bg-clip-text stroke-amber-100 stroke-2 text-2xl font-semibold text-transparent"
+                        style={{
+                            WebkitTextStroke: '0.5px #FEF3C7', // amber-100
+                        }}
+                    >
+                        {currentLocale === 'kh' ? website_info?.name_kh || website_info?.name : website_info?.name}
+                    </span>
                 </a>
             }
             topRightAction={

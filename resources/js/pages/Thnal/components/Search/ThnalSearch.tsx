@@ -74,7 +74,7 @@ const ThnalSearch = ({ debounceSearch = true }: LibrarySearchProps) => {
     };
 
     return (
-        <div className="relative w-full max-w-4xl">
+        <div className="relative w-full ">
             <div
                 className={cn(
                     'flex items-center rounded-full border border-white bg-white/10 md:p-2 text-primary-foreground ring-primary/20 backdrop-blur-sm focus-within:ring-4 dark:ring-primary/50',

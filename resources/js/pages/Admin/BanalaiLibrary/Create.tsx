@@ -32,6 +32,11 @@ interface PageForm {
     link?: string;
     icon?: string;
 
+    library_supporter_name?: string;
+    library_supporter_chat_link?: string;
+    website?: string;
+    facebook?: string;
+
     total_views_count?: number;
     order_index?: number;
 }
@@ -65,6 +70,10 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
         link: editData?.link || '',
         icon: editData?.icon || '',
         total_views_count: editData?.total_views_count || 0,
+        library_supporter_name: editData?.library_supporter_name || '',
+        library_supporter_chat_link: editData?.library_supporter_chat_link || '',
+        website: editData?.website || '',
+        facebook: editData?.facebook || '',
     });
 
     const onSubmit = (e: React.FormEvent) => {
@@ -130,7 +139,7 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         required
                         id="name"
                         name="name"
-                        label="Name"
+                        label="Library Name"
                         value={data.name}
                         onChange={(val) => setData('name', val)}
                         error={errors.name}
@@ -139,11 +148,29 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                     <FormField
                         id="name_kh"
                         name="name_kh"
-                        label="Name Khmer"
+                        label="Library Name Khmer"
                         value={data.name_kh}
                         onChange={(val) => setData('name_kh', val)}
                         error={errors.name_kh}
                         containerClassName="col-span-2 md:col-span-1"
+                    />
+                   
+                    <FormField
+                        id="website"
+                        name="website"
+                        label="Website Library URL"
+                        value={data.website || ''}
+                        onChange={(val) => setData('website', val)}
+                        error={errors.website}
+                    />
+
+                    <FormField
+                        id="facebook"
+                        name="facebook"
+                        label="Facebook Library URL"
+                        value={data.facebook || ''}
+                        onChange={(val) => setData('facebook', val)}
+                        error={errors.facebook}
                     />
                     {/* <FormFieldTextArea
                         id="short_description"
@@ -152,7 +179,6 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         value={data.short_description}
                         onChange={(val) => setData('short_description', val)}
                         error={errors.short_description}
-                        containerClassName="col-span-2"
                     /> */}
                     <FormField
                         id="phone"
@@ -161,16 +187,14 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         value={data.phone}
                         onChange={(val) => setData('phone', val)}
                         error={errors.phone}
-                        containerClassName="col-span-2"
                     />
                     <FormField
                         id="telegram"
                         name="telegram"
-                        label="Telegram"
+                        label="Telegram Library URL"
                         value={data.telegram}
                         onChange={(val) => setData('telegram', val)}
                         error={errors.telegram}
-                        containerClassName="col-span-2"
                         description="Example: https://t.me/username"
                     />
                     <FormField
@@ -180,8 +204,8 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         value={data.email}
                         onChange={(val) => setData('email', val)}
                         error={errors.email}
-                        containerClassName="col-span-2"
                     />
+                    
                     <FormField
                         required
                         type="number"
@@ -194,6 +218,25 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         description="Lower number has higher priority."
                     />
 
+                    
+                     <FormField
+                        id="library_supporter_name"
+                        name="library_supporter_name"
+                        label="Library Supporter Name"
+                        value={data.library_supporter_name || ''}
+                        onChange={(val) => setData('library_supporter_name', val)}
+                        error={errors.library_supporter_name}
+                    />
+
+                    <FormField
+                        id="library_supporter_chat_link"
+                        name="library_supporter_chat_link"
+                        label="Supporter Chat Link"
+                        value={data.library_supporter_chat_link || ''}
+                        onChange={(val) => setData('library_supporter_chat_link', val)}
+                        error={errors.library_supporter_chat_link}
+                        description="Example: https://t.me/username"
+                    />
                     <FormField
                         id="link"
                         name="link"
@@ -201,11 +244,13 @@ export default function Create({ editData, readOnly }: { editData?: any; readOnl
                         value={data.link || ''}
                         onChange={(val) => setData('link', val)}
                         error={errors.link}
+                        containerClassName='col-span-2'
                     />
-                    <div className="col-span-2 grid content-start gap-2">
+
+                    {/* <div className="col-span-2 grid content-start gap-2">
                         <FormLabel label="Long Description" />
                         <MyCkeditor5 data={data.long_description || ''} setData={(val: any) => setData('long_description', val)} />
-                    </div>
+                    </div> */}
 
                     <div className="col-span-2">
                         <Tabs defaultValue="icon" className="w-full rounded-lg bg-muted/80 p-4">

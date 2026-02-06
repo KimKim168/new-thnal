@@ -28,10 +28,10 @@ export function ThnalLanguage() {
             variant="outline"
             size="icon"
             onClick={() => setValue(lang.value)}
-            className={`p-1 border-2 transition-all ${
+            className={`p-1 border transition-all bg-white/10 backdrop-blur-sm ${
               value === lang.value
-                ? 'border-primary-two'
-                : 'border-transparent'
+                ? 'border-yellow-500 dark:border-yellow-500 border-2'
+                : ''
             } hover:border-yellow-300`}
           >
             <img

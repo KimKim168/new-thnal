@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import * as React from 'react';
 import { AlertDialogSearch } from './Search/AlertDielogSearch';
 import ThnalSearch from './Search/ThnalSearch';
+import { ThnalLanguage } from './ThnalLanguage';
 
 // Interface definitions remain the same
 interface NavLink {
@@ -52,17 +53,17 @@ const itemVariants = {
     },
 };
 
-export const AnimatedHero2 = ({
-    backgroundImageUrl,
-    logo,
-    topRightAction,
-    className,
-}: AnimatedHeroProps) => {
+export const AnimatedHero2 = ({ backgroundImageUrl, logo, topRightAction, className }: AnimatedHeroProps) => {
     // Define the new reusable glass button style
 
     return (
-        <div className={cn('relative flex min-h-[112px] w-full flex-col items-center justify-center overflow-hidden bg-background', className)}>
-           <div
+        <div
+            className={cn(
+                'relative flex min-h-[100px] w-full flex-col items-center justify-center overflow-hidden bg-background lg:min-h-[180px]',
+                className,
+            )}
+        >
+            <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('/assets/images/banners/${backgroundImageUrl}')` }}
             >
@@ -73,15 +74,19 @@ export const AnimatedHero2 = ({
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="section-container absolute top-0 z-20 flex h-28 w-full items-center justify-between px-6 text-white md:px-12"
+                className="section-container absolute top-0 z-20 flex h-28 w-full items-center justify-between px-6 text-white"
             >
                 <div className="flex items-center gap-2">{logo}</div>
-                <div className=" items-center gap-2 w-[500px] xl:w-[600px] hidden lg:flex">
-                    <ThnalSearch />
-                    <AlertDialogSearch />
-                </div>
+
                 <div className="hidden md:block">{topRightAction}</div>
+                {/* <div className='md:hidden'><ThnalLanguage /></div> */}
             </motion.header>
+            <div className="section-container absolute top-24 z-20 hidden w-[500px] items-center gap-2 lg:flex xl:w-full">
+                <div className="w-full flex-1">
+                    <ThnalSearch />
+                </div>
+                <AlertDialogSearch />
+            </div>
         </div>
     );
 };

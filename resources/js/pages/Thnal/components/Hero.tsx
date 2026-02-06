@@ -68,13 +68,13 @@ export default function Hero() {
                             </Link>
                         ) : (
                             <div className="flex items-center gap-2">
-                                <Link prefetch href="/register2">
-                                    <Button variant="outline" size="icon" className="text-primary">
+                                <Link prefetch href="/register">
+                                    <Button variant="outline" size="icon" className="text-primary bg-white/10 backdrop-blur-sm">
                                         <UserPlus className="h-4 w-4" stroke="#0471c1" />
                                     </Button>
                                 </Link>
                                 <Link prefetch href="/login">
-                                    <Button variant="outline" size="icon" className="text-primary">
+                                    <Button variant="outline" size="icon" className="text-primary bg-white/10 backdrop-blur-sm">
                                         <LogIn className="h-4 w-4" stroke="#0471c1" />
                                     </Button>
                                 </Link>
